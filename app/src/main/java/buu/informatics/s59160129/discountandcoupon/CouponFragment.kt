@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import androidx.databinding.DataBindingUtil
 import buu.informatics.s59160129.discountandcoupon.databinding.FragmentCouponBinding
 
@@ -24,6 +25,8 @@ class CouponFragment : Fragment() {
             container,
             false
         )
+        val myWebView: WebView = binding.loadWeb
+        myWebView.loadUrl("https://couponbangsean.netlify.com/")
         return binding.root
     }
 

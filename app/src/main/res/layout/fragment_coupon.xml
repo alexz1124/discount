@@ -9,14 +9,16 @@
         android:layout_height="match_parent" >
 
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="246dp"
-            android:layout_height="142dp"
-            android:text="Button"
+        <WebView
+            android:id="@+id/loadWeb"
+            android:layout_width="419dp"
+            android:layout_height="613dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
