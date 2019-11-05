@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import buu.informatics.s59160129.discountandcoupon.databinding.FragmentHomeBinding
@@ -15,6 +16,7 @@ import buu.informatics.s59160129.discountandcoupon.databinding.FragmentHomeBindi
  * A simple [Fragment] subclass.
  */
 class HomeFragment : Fragment() {
+    private lateinit var viewModel: LoadViewmodel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +29,10 @@ class HomeFragment : Fragment() {
             container,
             false
         )
+        Log.i("LoadFragment", "Called ViewModelProviders.of")
+        viewModel = ViewModelProviders.of(this).get(LoadViewmodel::class.java)
+
+
         binding.btnCalculate.setOnClickListener{  view : View ->
             view.findNavController().navigate(R.id.action_homeFragment_to_calculateFragment) }
 

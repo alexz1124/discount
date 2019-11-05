@@ -6,14 +6,125 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <Button
             android:id="@+id/btn_ok"
-            android:layout_width="227dp"
-            android:layout_height="148dp"
+            android:layout_width="79dp"
+            android:layout_height="56dp"
+            android:fontFamily="@font/abril_fatface"
             android:text="@string/btn_ok"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.707"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.23000002" />
+
+        <EditText
+            android:id="@+id/input_originalPrice"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/abril_fatface"
+            android:hint="Price"
+            android:inputType="number"
+            android:textAlignment="textEnd"
+            android:textSize="24sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/input_discount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.175"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/input_discount"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/abril_fatface"
+            android:hint="Discount"
+            android:inputType="number"
+            android:textAlignment="textEnd"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.248"
+            app:layout_constraintStart_toEndOf="@+id/input_originalPrice"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.100000024" />
+
+        <TextView
+            android:id="@+id/text_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abril_fatface"
+            android:text="@string/cal_save"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.113"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_ok"
+            app:layout_constraintVertical_bias="0.050000012" />
+
+        <TextView
+            android:id="@+id/text_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abril_fatface"
+            android:text="@string/text_price"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/text_s"
+            app:layout_constraintStart_toStartOf="@+id/text_s"
+            app:layout_constraintTop_toBottomOf="@+id/text_s" />
+
+        <TextView
+            android:id="@+id/text_yourSave"
+            android:layout_width="214dp"
+            android:layout_height="130dp"
+            android:fontFamily="@font/abril_fatface"
+            android:text="@string/yourSave"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="80sp"
+            app:layout_constraintBottom_toTopOf="@+id/text_p"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.558"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_s"
+            app:layout_constraintVertical_bias="0.361" />
+
+        <TextView
+            android:id="@+id/text_finalPrice"
+            android:layout_width="216dp"
+            android:layout_height="139dp"
+            android:fontFamily="@font/abril_fatface"
+            android:text="@string/finalPrice"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="80sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/text_yourSave"
+            app:layout_constraintStart_toStartOf="@+id/text_yourSave"
+            app:layout_constraintTop_toBottomOf="@+id/text_p" />
+
+        <TextView
+            android:id="@+id/percent"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:fontFamily="@font/abril_fatface"
+            android:inputType="number"
+            android:text="@string/per"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/input_discount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.91"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.92" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
