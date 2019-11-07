@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
         )
         Log.i("LoadFragment", "Called ViewModelProviders.of")
         viewModel = ViewModelProviders.of(this).get(LoadViewmodel::class.java)
-
+        viewModel.test("sss")
 
         binding.btnCalculate.setOnClickListener{  view : View ->
             view.findNavController().navigate(R.id.action_homeFragment_to_calculateFragment) }
