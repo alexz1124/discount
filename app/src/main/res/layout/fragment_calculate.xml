@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name = "myValue"
+            type="buu.informatics.s59160129.discountandcoupon.data.ValueCalculate"
+            />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -83,7 +89,7 @@
             android:layout_width="214dp"
             android:layout_height="130dp"
             android:fontFamily="@font/abril_fatface"
-            android:text="@string/yourSave"
+            android:text="@={myValue.yourSave}"
             android:textAlignment="center"
             android:textColor="@android:color/background_dark"
             android:textSize="80sp"
@@ -99,7 +105,7 @@
             android:layout_width="216dp"
             android:layout_height="139dp"
             android:fontFamily="@font/abril_fatface"
-            android:text="@string/finalPrice"
+            android:text="@={myValue.finalPrice}"
             android:textAlignment="center"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="80sp"

@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import buu.informatics.s59160129.discountandcoupon.databinding.FragmentHomeBinding
+import buu.informatics.s59160129.discountandcoupon.viewModel.LoadViewmodel
 
 /**
  * A simple [Fragment] subclass.

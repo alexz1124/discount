@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import buu.informatics.s59160129.discountandcoupon.data.ValueCalculate
 import buu.informatics.s59160129.discountandcoupon.databinding.ActivityMainBinding
 import buu.informatics.s59160129.discountandcoupon.databinding.FragmentCalculateBinding
 import buu.informatics.s59160129.discountandcoupon.databinding.FragmentHomeBinding
@@ -17,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar
  * A simple [Fragment] subclass.
  */
 class CalculateFragment : Fragment() {
+    private val myValue: ValueCalculate = ValueCalculate()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,12 +37,14 @@ class CalculateFragment : Fragment() {
                     binding.inputOriginalPrice.text.toString().toInt(),
                     binding.inputDiscount.text.toString().toInt(), true
                 )
-                binding.textFinalPrice.setText(result.toString())
+                //binding.textFinalPrice.setText(result.toString())
+                myValue.finalPrice = result.toString()
                 var save = calculate(
                     binding.inputOriginalPrice.text.toString().toInt(),
                     binding.inputDiscount.text.toString().toInt(), false
                 )
-                binding.textYourSave.setText(save.toString())
+//                binding.textYourSave.setText(save.toString())
+                myValue.yourSave = result.toString()
                 val snack = Snackbar.make(it,"Save to history",Snackbar.LENGTH_LONG)
                 snack.show()
                 binding.invalidateAll()
@@ -48,6 +52,8 @@ class CalculateFragment : Fragment() {
                 
             }
         }
+        binding.myValue = myValue
+
         return binding.root
     }
     fun calculate(original: Int = 0, discount: Int = 0, boolean: Boolean): Int {

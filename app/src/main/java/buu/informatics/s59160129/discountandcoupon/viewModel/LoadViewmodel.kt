@@ -1,4 +1,4 @@
-package buu.informatics.s59160129.discountandcoupon
+package buu.informatics.s59160129.discountandcoupon.viewModel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
