@@ -17,6 +17,7 @@ import buu.informatics.s59160129.discountandcoupon.databinding.FragmentHomeBindi
 import buu.informatics.s59160129.discountandcoupon.viewModel.CalculateViewModel
 import buu.informatics.s59160129.discountandcoupon.viewModel.LoadViewmodel
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_calculate.*
 
 /**
  * A simple [Fragment] subclass.
@@ -49,20 +50,23 @@ class CalculateFragment : Fragment() {
                     binding.inputDiscount.text.toString().toInt(), true
                 )
                 //binding.textFinalPrice.setText(result.toString())
-                myValue.finalPrice = result.toString()
+                //myValue.finalPrice = result.toString()
+                viewModel.setFinalPrice(result.toString())
                 var save = calculate(
                     binding.inputOriginalPrice.text.toString().toInt(),
                     binding.inputDiscount.text.toString().toInt(), false
                 )
 //                binding.textYourSave.setText(save.toString())
-                myValue.yourSave = result.toString()
+//                myValue.yourSave = result.toString()
+                viewModel.setSavePrice(save.toString())
                 val snack = Snackbar.make(it, "Save to history", Snackbar.LENGTH_LONG)
                 snack.show()
-                binding.invalidateAll()
             } else {
 
             }
-            Log.i("Test","${viewModel.calculate()}")
+            input_originalPrice.text.clear()
+            input_discount.text.clear()
+            binding.invalidateAll()
         }
 
         binding.myValue = myValue
@@ -74,7 +78,7 @@ class CalculateFragment : Fragment() {
         var sum = (original * discount) / 100
         var save = sum
         sum = original - sum
-       // Log.i("Test", save.toString() + "=" + sum.toString())
+        // Log.i("Test", save.toString() + "=" + sum.toString())
         if (boolean) {
             return sum
         }

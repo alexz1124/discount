@@ -6,12 +6,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class CalculateViewModel : ViewModel() {
-    private val _aa = MutableLiveData<String>()
-    val aa: LiveData<String>
-        get() = _aa
+    private val _final = MutableLiveData<String>()
+    val final: LiveData<String>
+        get() = _final
+
+    private val _save = MutableLiveData<String>()
+    val save: LiveData<String>
+        get() = _save
 
     init {
-        _aa.value = "850"
+        _final.value = "0"
+        _save.value = "0"
         Log.i("CalculateViewModel", "CalculateViewModel created!")
     }
 
@@ -30,8 +35,12 @@ class CalculateViewModel : ViewModel() {
 //        }
 //        return save
 //    }
-    fun calculate(): String {
-        Log.i("Test","---${aa.value.toString()}")
-        return aa.value.toString()
+    fun setFinalPrice(finalPrice:String){
+//        Log.i("Test","---${final.value.toString()}")
+        _final.value = finalPrice
+    }
+    fun setSavePrice(savePrice:String){
+//        Log.i("Test","---${final.value.toString()}")
+        _save.value = savePrice
     }
 }
