@@ -7,11 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import buu.informatics.s59160129.discountandcoupon.data.ValueCalculate
 import buu.informatics.s59160129.discountandcoupon.databinding.ActivityMainBinding
 import buu.informatics.s59160129.discountandcoupon.databinding.FragmentCalculateBinding
 import buu.informatics.s59160129.discountandcoupon.databinding.FragmentHomeBinding
+import buu.informatics.s59160129.discountandcoupon.viewModel.CalculateViewModel
+import buu.informatics.s59160129.discountandcoupon.viewModel.LoadViewmodel
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -19,6 +23,9 @@ import com.google.android.material.snackbar.Snackbar
  */
 class CalculateFragment : Fragment() {
     private val myValue: ValueCalculate = ValueCalculate()
+    private lateinit var viewModel: CalculateViewModel
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +37,10 @@ class CalculateFragment : Fragment() {
             container,
             false
         )
+        val args = CalculateFragmentArgs.fromBundle(arguments!!)
+//        Log.i("Test", "$args")
+        Toast.makeText(context, "${args.name}", Toast.LENGTH_SHORT).show()
+        viewModel = ViewModelProviders.of(this).get(CalculateViewModel::class.java)
         binding.btnOk.setOnClickListener {
             if (binding.inputOriginalPrice.text.toString().length != 0 && binding.inputDiscount.text.toString().length != 0) {
 //                Log.i("Test", "FFF")
@@ -45,22 +56,25 @@ class CalculateFragment : Fragment() {
                 )
 //                binding.textYourSave.setText(save.toString())
                 myValue.yourSave = result.toString()
-                val snack = Snackbar.make(it,"Save to history",Snackbar.LENGTH_LONG)
+                val snack = Snackbar.make(it, "Save to history", Snackbar.LENGTH_LONG)
                 snack.show()
                 binding.invalidateAll()
-            }else{
-                
-            }
-        }
-        binding.myValue = myValue
+            } else {
 
+            }
+            Log.i("Test","${viewModel.calculate()}")
+        }
+
+        binding.myValue = myValue
+        binding.myFinal = viewModel
         return binding.root
     }
+
     fun calculate(original: Int = 0, discount: Int = 0, boolean: Boolean): Int {
         var sum = (original * discount) / 100
         var save = sum
         sum = original - sum
-        Log.i("Test", save.toString() + "=" + sum.toString())
+       // Log.i("Test", save.toString() + "=" + sum.toString())
         if (boolean) {
             return sum
         }

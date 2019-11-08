@@ -7,6 +7,10 @@
             name = "myValue"
             type="buu.informatics.s59160129.discountandcoupon.data.ValueCalculate"
             />
+        <variable
+            name = "myFinal"
+            type="buu.informatics.s59160129.discountandcoupon.viewModel.CalculateViewModel"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -105,7 +109,7 @@
             android:layout_width="216dp"
             android:layout_height="139dp"
             android:fontFamily="@font/abril_fatface"
-            android:text="@={myValue.finalPrice}"
+            android:text="@{myFinal.calculate()}"
             android:textAlignment="center"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="80sp"

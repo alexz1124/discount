@@ -16,17 +16,28 @@
         <action
             android:id="@+id/action_homeFragment_to_couponFragment"
             app:destination="@id/couponFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/calculateFragment"
         android:name="buu.informatics.s59160129.discountandcoupon.CalculateFragment"
         android:label="CalculateFragment"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/couponFragment"
         android:name="buu.informatics.s59160129.discountandcoupon.CouponFragment"
         android:label="CouponFragment"
-        tools:layout="@layout/fragment_coupon" />
+        tools:layout="@layout/fragment_coupon" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="buu.informatics.s59160129.discountandcoupon.HistoryFragment"
